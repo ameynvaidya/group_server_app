@@ -1,5 +1,5 @@
 For fetching authorization code:
-https://group-server-app.herokuapp.com//oauth/authorize?client_id=1234&response_type=code&redirect_uri=http://localhost/exchange_token&state=423423423423
+https://group-server-app.herokuapp.com/oauth/authorize?client_id=1234&response_type=code&redirect_uri=http://localhost/exchange_token&state=423423423423
 
 Login: 
 email: amey@abc.com 
