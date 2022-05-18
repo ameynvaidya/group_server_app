@@ -20,7 +20,7 @@ def authorize():
     redirect_uri = request.args.get("redirect_uri")
     state = request.args.get("state")
     if current_user.is_authenticated:
-        return redirect(redirect_uri + "/state=" + state +"&code=" + current_user.id + ":h1m5sjtRqo976Ka25EEPkGu9L&scope=read")
+        return redirect(redirect_uri + "/state=" + state +"&code=" + str(current_user.id) + ":h1m5sjtRqo976Ka25EEPkGu9L&scope=read")
     else:
         session['url'] = request.url
         return redirect(url_for('auth.login'))
