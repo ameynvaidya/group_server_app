@@ -77,7 +77,7 @@ def gen_new_access_token(user_id):
 
 def grant_new_access_token(auth_code):
     # check if auth code is valid and derive the user_id
-    user_id = validate_authorization_code()
+    user_id = validate_authorization_code(auth_code)
     return gen_new_access_token(user_id)
 
     
@@ -92,7 +92,7 @@ def token_exchange():
     refresh_token = request.form.get("refresh_token")
 
     if (grant_type == "authorization_code"):
-        grant_new_access_token(authorization_code)
+        return grant_new_access_token(authorization_code)
     elif (grant_type == "refresh_token"):
         # validate refresh token
         user_access_token = UserAccessToken.query.filter_by(refresh_token=refresh_token).first()
