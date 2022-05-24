@@ -33,6 +33,14 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    # blueprint for OAuth server parts of app
+    from .oauth import oauth as oauth_blueprint
+    app.register_blueprint(oauth_blueprint)
+
+    # blueprint for API parts of app
+    from .api import api as api_blueprint
+    app.register_blueprint(api_blueprint)
+
     # register command to create tables in postgresql
     app.cli.add_command(create_tables)
     app.cli.add_command(drop_tables)
