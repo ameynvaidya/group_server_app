@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 from flask_login import LoginManager
-from .commands import create_tables
+from .commands import create_tables, drop_tables
 from .extensions import db
 
 def create_app():
@@ -35,5 +35,6 @@ def create_app():
 
     # register command to create tables in postgresql
     app.cli.add_command(create_tables)
+    app.cli.add_command(drop_tables)
 
     return app
